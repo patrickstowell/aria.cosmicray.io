@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Image Comparison Slider</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Articles-Cards-images.css">
+    <link rel="stylesheet" href="assets/css/Navbar-Right-Links-icons.css">
+    <link rel="stylesheet" href="assets/css/untitled.css">
+</head>
+
+<body>
+    <div class="slider-container" id="slider1"><img src="assets/img/rockheight.png" alt="Image 1A"><img src="assets/img/iceheight.png" alt="Image 1B" class="slider-image-top" id="topImage">
+        <div class="slider-handle" id="handle"></div>
+    </div>
+    <div class="slider-container" id="slider2"><img src="./view_baserock.tif" alt="Image 2A"><img src="view_elevation.tif" alt="Image 2B" class="slider-image-top" id="topImage">
+        <div class="slider-handle" id="handle"></div>
+    </div><script>
+  function createSyncedSliders(sliderA, sliderB) {
+    const topA = sliderA.querySelector('.slider-image-top');
+    const handleA = sliderA.querySelector('.slider-handle');
+
+    const topB = sliderB.querySelector('.slider-image-top');
+    const handleB = sliderB.querySelector('.slider-handle');
+
+    let isDragging = false;
+
+    const moveBothSliders = (x, container) => {
+      const rect = container.getBoundingClientRect();
+      let offset = x - rect.left;
+      if (offset < 0) offset = 0;
+      if (offset > rect.width) offset = rect.width;
+
+      const percent = (offset / rect.width) * 100;
+
+      // Apply to both sliders
+      [topA, topB].forEach(img => img.style.clipPath = `inset(0 ${100 - percent}% 0 0)`);
+      [handleA, handleB].forEach(h => h.style.left = `${percent}%`);
+    };
+
+    const startDrag = (e, container) => {
+      isDragging = true;
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      moveBothSliders(clientX, container);
+    };
+
+    const duringDrag = (e, container) => {
+      if (!isDragging) return;
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      moveBothSliders(clientX, container);
+    };
+
+    const stopDrag = () => {
+      isDragging = false;
+    };
+
+    [sliderA, sliderB].forEach(container => {
+      container.addEventListener('mousedown', e => startDrag(e, container));
+      container.addEventListener('mousemove', e => duringDrag(e, container));
+      container.addEventListener('touchstart', e => startDrag(e, container));
+      container.addEventListener('touchmove', e => duringDrag(e, container));
+    });
+
+    window.addEventListener('mouseup', stopDrag);
+    window.addEventListener('touchend', stopDrag);
+  }
+
+  // Link both sliders
+  const slider1 = document.getElementById('slider1');
+  const slider2 = document.getElementById('slider2');
+  createSyncedSliders(slider1, slider2);
+</script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+</body>
+
+</html>
