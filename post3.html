@@ -61,6 +61,57 @@
       font-weight: bold;
     }
   </style>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      margin: 20px;
+    }
+
+    .container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .base-image {
+      max-width: 100%;
+      display: block;
+    }
+
+    
+
+    .annotation {
+      position: absolute;
+      top: 0;
+      left: 105%;
+      width: 300px;
+      background: white;
+      border: 1px solid #ccc;
+      padding: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-10px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .annotation.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .annotation img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .annotation h4 {
+      margin-top: 0;
+    }
+  </style>
 </head>
 
 <body>
@@ -88,7 +139,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <p class="article-container gray" style="font-size:20px"><strong><span style="color: rgb(0, 0, 0); background-color: transparent;">ARTICLE</span></strong></p>
-                    <p class="title-container gray" style="font-size: 30px; padding: 20px"><strong>How does CosmicRay work? A deep dive into the sensors and</strong><br><strong>how they monitor the Greenland Ice Sheet.</strong></p>
+                    <p class="title-container gray" style="font-size: 30px; padding: 20px"><strong>How does CosmicRay work? A deep dive into the sensors and&nbsp;how they monitor the Greenland Ice Sheet.</strong></p>
                 </div>
             </div>
         </div>
@@ -97,7 +148,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p style="font-size: 12pt;text-align: justify; margin-top: 20px">At the heart of CosmicRay lies the sensors, the focus of the research done by the group.</p>
+                    <p style="font-size: 12pt;text-align: justify; margin-top: 20px">At the heart of CosmicRay lies the neutron sensors, the focus of the research done by the group<br>at Sheffield.</p>
                     <p style="font-size: 12pt;text-align: justify;">To understand these sensors and their capabilities, we need to understand what cosmic rays are, where they originate, and what they reveal about the Greenland Ice Sheet.</p>
                     <p class="title-lower"><strong>From Supernova</strong></p>
                     <p style="font-size: 12pt;text-align: justify;">However, first, it is crucial to understand what a cosmic ray is. The term, coined by Robert Millikan in 1925, is used to describe rapid particles that travel across space as a result of events such as supernovae (stars exploding) and solar flares from the sun. These particles consist of muons and neutrons, which means they are charged and carry energy with them through space.</p>
@@ -126,19 +177,18 @@
             <div class="row">
                 <div class="col-md-12">
                     <p class="title-lower"><strong>Inside the sensor</strong></p>
-                    <div style="text-align: center; margin: 20px"><img src="assets/img/article%203%20sensor%20v1.png" style="width:80%"></div>
+                    <div style="text-align: center; margin: 20px"><img src="assets/img/clipboard-image-25.png" style="width:100%"></div>
                     <p style="font-size: 12pt;text-align: justify;">The sensor itself is an intricate piece of machinery with plenty of parts, from the power system to the smaller sensors, but to fully understand it, we can look at each part individually:</p>
                     <ul>
-                        <li><strong>Solar Power System:</strong> A solar panel powering the sensor</li>
-                        <li><strong>Neutron Capture Material: </strong>Absorbs the particles, turning them into charged particles</li>
-                        <li><strong>Scintillator:</strong> Turns charged particles into light</li>
+                        <li><strong>Neutron Scintillator Material: </strong>Absorbs neutrons, producing pulses of light.</li>
                         <li><strong>Waveguide:</strong> Transfers this light to a photosensor</li>
                         <li><strong>Photosensor: </strong>Detects the light particles</li>
                         <li><strong>Pulse Processor: </strong>Capable of finding neutrons within the light pulses</li>
-                        <li><strong>Data Logger: </strong>Records surrounding environmental information</li>
                         <li><strong>Modem: </strong>Sends data to orbiting satellites, allowing for data to leave Greenland</li>
+                        <li><strong>Solar Power System:</strong> A solar panel powering the sensor</li>
                         <li><strong>Waterproof Shell: </strong>Keeps the equipment safe from potential weather conditions</li>
-                        <li><strong>Mounting Pole: </strong>Holds the sensor together and keeps it grounded</li>
+                        <li><strong>Mounting System: </strong>Holds the sensor together and keeps it grounded</li>
+                        <li><strong>Data Logger: </strong>Records surrounding environmental information</li>
                     </ul><span></span>
                     <p class="title-lower"><strong>Testing the Sensor</strong></p>
                     <p style="font-size: 12pt;text-align: justify;">To ensure these sensors are suitable, they must go through rigorous testing. Firstly, to know that the equipment works in general, a physics lab set up just outside the department building serves as a radiation testing facility.</p>
@@ -166,7 +216,7 @@
                 <p style="font-style: italic;font-size: 11pt;/*font-color: #;*/"></p>
                 <p style="font-size: 12pt;text-align: justify; font-style: italic">This article, and others on the website and the website itself have been made for the completion of my MSc in Science Communication, if you could, please give me feedback based of this article below, and any others if possible.</p>
                 <p style="font-size: 12pt;text-align: justify; font-style: italic">Thank you,</p>
-                <p style="font-size: 12pt;text-align: justify;font-style: italic">Matt Rowe</p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfLokqxO7nGN0Kghb-hyowLFtSwlPh-S_ZVLxHov3ADzb_OKg/viewform?usp=header"><button class="btn btn-primary" style="width: 100%; margin-bottom: 20px; font-style: italic;padding: 20px;color: white;border-color: white;background-color: #257C9C;font-weight: bold;border-width: 2px;border-color: white;border-radius: 10px;">LINK TO FEEDBACK FORM</button></a><span></span>
+                <p style="font-size: 12pt;text-align: justify;font-style: italic">Matt Rowe</p><a href="https://docs.google.com/forms/d/1ffyTUi9-jV0GHQit8KfnZH-sM1kSEVayO5ESKksmQ5A/viewform?edit_requested=true"><button class="btn btn-primary" style="width: 100%; margin-bottom: 20px; font-style: italic;padding: 20px;color: white;border-color: white;background-color: #257C9C;font-weight: bold;border-width: 2px;border-color: white;border-radius: 10px;">LINK TO FEEDBACK FORM</button></a><span></span>
             </div>
         </div>
     </div>
